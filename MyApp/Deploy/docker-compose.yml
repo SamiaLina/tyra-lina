@@ -1,0 +1,14 @@
+version: '3.13'
+
+services:
+  web:
+    build: .
+    container_name: deploy_app
+    command: python deploy.py
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=production
